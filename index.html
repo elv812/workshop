@@ -8,6 +8,7 @@
     content="ELV8 Academy develops professional presence, communication confidence and workplace capability through practical workshops and customised corporate training." />
   <title>ELV8 Academy | Learn. Elevate. Succeed.</title>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <meta name="theme-color" content="#000000" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -1154,38 +1155,175 @@
     }
 
     @media (max-width: 850px) {
+      .hero {
+        display: block !important;
+        padding: 30px 0 45px !important;
+      }
+
       .hero-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
         grid-template-columns: 1fr !important;
-        gap: 20px !important;
+        gap: 15px !important;
         padding: 0 20px !important;
       }
 
       .hero-content {
         text-align: center !important;
-        padding-top: 30px !important;
-        padding-bottom: 10px !important;
+        padding-top: 10px !important;
+        padding-bottom: 5px !important;
+        width: 100% !important;
+        max-width: 580px !important;
+        margin: 0 auto !important;
       }
 
       .hero-copy {
+        text-align: center !important;
+        text-justify: none !important;
+        -webkit-hyphens: none !important;
+        hyphens: none !important;
+        word-spacing: normal !important;
+        max-width: 100% !important;
         margin-left: auto !important;
         margin-right: auto !important;
+        line-height: 1.62 !important;
+        font-size: 15px !important;
       }
 
       .hero-actions {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
         justify-content: center !important;
+        align-items: center !important;
+        gap: 12px !important;
+        margin: 20px 0 16px 0 !important;
+        width: 100% !important;
       }
 
+      .hero-actions .btn,
+      .btn-hero-primary,
+      .btn-hero-secondary {
+        white-space: nowrap !important;
+        flex: 0 0 auto !important;
+        padding: 12px 20px !important;
+        font-size: 0.90rem !important;
+      }
+
+      @media (max-width: 380px) {
+        .hero-actions {
+          gap: 8px !important;
+        }
+        .hero-actions .btn,
+        .btn-hero-primary,
+        .btn-hero-secondary {
+          padding: 10px 14px !important;
+          font-size: 0.84rem !important;
+        }
+      }
+
+      .hero-micro {
+        text-align: center !important;
+      }
+
+      /* Hero artwork image removed on mobile view as requested */
       .hero-visual {
-        justify-content: center !important;
-        margin-right: 0 !important;
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
       .hero-artwork-img {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+      }
+
+      /* Mobile layout & alignment fixes for pathways cards & text */
+      .pathways {
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+      }
+
+      .path-card {
+        padding: 28px 22px !important;
+      }
+
+      .path-card .path-label {
+        font-size: 0.74rem !important;
+        letter-spacing: 0.16em !important;
+        margin-bottom: 8px !important;
+      }
+
+      .path-card h3 {
+        font-size: 1.45rem !important;
+        line-height: 1.25 !important;
+        margin: 10px 0 14px !important;
+      }
+
+      .path-card p {
+        text-align: left !important;
+        text-justify: none !important;
+        -webkit-hyphens: none !important;
+        hyphens: none !important;
+        word-spacing: normal !important;
+        letter-spacing: normal !important;
+        line-height: 1.62 !important;
+        font-size: 15px !important;
+        color: #b8c4c6 !important;
+        max-width: 100% !important;
+        margin: 12px 0 !important;
+      }
+
+      .path-card ul {
+        padding-left: 20px !important;
+        margin: 18px 0 20px !important;
+      }
+
+      .path-card li {
+        margin: 10px 0 !important;
+        line-height: 1.55 !important;
+        font-size: 14px !important;
+        color: #d6e0df !important;
+        text-align: left !important;
+        word-spacing: normal !important;
+        -webkit-hyphens: none !important;
+        hyphens: none !important;
+      }
+
+      .path-card .btn {
+        display: inline-flex !important;
         width: 100% !important;
-        min-width: unset !important;
-        max-width: 540px !important;
-        -webkit-mask-image: none !important;
-        mask-image: none !important;
+        justify-content: center !important;
+        text-align: center !important;
+        margin-top: 14px !important;
+      }
+
+      .section-head p {
+        text-align: left !important;
+        text-justify: none !important;
+        -webkit-hyphens: none !important;
+        hyphens: none !important;
+        word-spacing: normal !important;
+        font-size: 15px !important;
+        line-height: 1.62 !important;
+        max-width: 100% !important;
+      }
+
+      .topic p,
+      .program p,
+      .step p,
+      .founder-body p {
+        text-align: left !important;
+        text-justify: none !important;
+        -webkit-hyphens: none !important;
+        hyphens: none !important;
+        word-spacing: normal !important;
+        font-size: 15px !important;
+        line-height: 1.6 !important;
       }
     }
   </style>
@@ -2278,7 +2416,7 @@
             <label for="enrollAmount" class="enroll-label">Amount <span class="enroll-req">*</span></label>
             <div class="enroll-input-wrap">
               <input id="enrollAmount" name="amount" class="enroll-input enroll-amount-display" type="text"
-                value="INR 1,000.00" readonly />
+                value="INR 1.00" readonly />
             </div>
           </div>
 
@@ -2341,7 +2479,7 @@
         <!-- Action Button -->
         <div class="enroll-actions">
           <button type="submit" id="enrollPayBtn" class="enroll-submit-btn">
-            <span id="enrollPayBtnText">Pay INR 1,000.00 ↗</span>
+            <span id="enrollPayBtnText">Pay INR 1.00 ↗</span>
           </button>
           <div class="enroll-trust-bar">
             <span>🔒</span> Secured by <strong>Razorpay</strong> · 256-bit SSL encryption
@@ -2355,22 +2493,18 @@
       <!-- Success / Payment Confirmation Screen -->
       <div id="enrollSuccessScreen" class="enroll-success-screen" style="display:none;">
         <div class="success-icon">✓</div>
-        <h3>Registration Submitted!</h3>
-        <p class="success-desc">Your details have been saved. Complete your payment of <strong>INR 1,000.00</strong> on
-          Razorpay to confirm your workshop seat.</p>
+        <h3>Payment Successful!</h3>
+        <p class="success-desc">Congratulations! Your seat is confirmed for the <strong>Professional Presence &amp; Communication</strong> workshop.</p>
         <div class="success-details">
+          <div><strong>Payment ID:</strong> <span id="successPaymentId" style="color:var(--teal2);font-family:monospace;font-weight:600;">-</span></div>
           <div><strong>Participant:</strong> <span id="successName">-</span></div>
           <div><strong>WhatsApp:</strong> <span id="successWhatsapp">-</span></div>
           <div><strong>City:</strong> <span id="successCity">-</span></div>
-          <div><strong>Amount:</strong> <span style="color:var(--lime);font-weight:700;">INR 1,000.00</span></div>
+          <div><strong>Amount Paid:</strong> <span style="color:var(--lime);font-weight:700;">INR 1.00 ✓</span></div>
         </div>
-        <a id="payRazorpayDirectBtn" href="https://razorpay.me/@fazeelamohamed" target="_blank"
-          rel="noopener noreferrer" class="enroll-submit-btn"
-          style="width:100%;margin-top:18px;text-decoration:none;display:flex;align-items:center;justify-content:center;">
-          Pay INR 1,000.00 on Razorpay ↗
-        </a>
-        <a href="https://chat.whatsapp.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline"
-          style="width:100%;margin-top:10px;display:flex;justify-content:center;">
+        <p style="font-size:0.86rem;color:#a8bcbf;margin:14px 0 6px;text-align:center;">An official payment receipt has been sent to your email by Razorpay.</p>
+        <a href="https://chat.whatsapp.com/" target="_blank" rel="noopener noreferrer" class="enroll-submit-btn"
+          style="width:100%;margin-top:10px;text-decoration:none;display:flex;align-items:center;justify-content:center;">
           Join Course WhatsApp Group ↗
         </a>
         <button type="button" class="btn btn-outline" onclick="closeEnrollModal()" style="width:100%;margin-top:10px;">
@@ -2386,7 +2520,7 @@
 
   <script>
     // ========================================================
-    // ELV8 ENROLLMENT & RAZORPAY PAYMENT LOGIC
+    // ELV8 ENROLLMENT & RAZORPAY PAYMENT LOGIC (PRODUCTION LIVE)
     // ========================================================
     function openEnrollModal(e) {
       if (e && e.preventDefault) e.preventDefault();
@@ -2446,6 +2580,80 @@
       el.style.display = 'block';
     }
 
+    // ========================================================
+    // EMAILJS CONFIGURATION & DISPATCH (AUTOMATED EMAILS)
+    // 1. Sends full student details to Admin (fazeela@elv8.co.in)
+    // 2. Sends confirmation email with ELV8 logo & WhatsApp link to Student
+    // ========================================================
+    const EMAILJS_CONFIG = {
+      publicKey: "Wa9T8NdNmilF-xHPO",
+      serviceId: "service_7jyx44m",
+      adminTemplateId: "template_48lxc7w", // Admin Notification
+      userTemplateId: "template_cv3u4j6"    // User Auto-Reply (Confirmation)
+    };
+
+    // Initialize EmailJS safely
+    (function initEmailJS() {
+      if (typeof emailjs !== 'undefined') {
+        try {
+          if (EMAILJS_CONFIG.publicKey && EMAILJS_CONFIG.publicKey !== "YOUR_EMAILJS_PUBLIC_KEY") {
+            emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+          }
+        } catch (err) {
+          console.warn('EmailJS initialization notice:', err);
+        }
+      }
+    })();
+
+    function sendEnrollmentEmails(data) {
+      if (typeof emailjs === 'undefined') {
+        console.warn('EmailJS SDK not loaded.');
+        return;
+      }
+      if (!EMAILJS_CONFIG.publicKey || EMAILJS_CONFIG.publicKey === "YOUR_EMAILJS_PUBLIC_KEY") {
+        console.log('EmailJS keys pending. Registration saved locally:', data);
+        return;
+      }
+
+      const templateParams = {
+        to_email: data.email,
+        admin_email: "fazeela@elv8.co.in",
+        name: data.name,
+        user_name: data.name,
+        email: data.email,
+        user_email: data.email,
+        phone: data.phone,
+        user_phone: data.phone,
+        whatsapp: data.whatsapp,
+        user_whatsapp: data.whatsapp,
+        city: data.city,
+        user_city: data.city,
+        profession: data.profession,
+        user_profession: data.profession,
+        amount: "₹1.00",
+        payment_id: data.paymentId,
+        date: new Date(data.paidAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+        payment_date: new Date(data.paidAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+        workshop_name: "Professional Presence & Communication",
+        whatsapp_link: "https://chat.whatsapp.com/",
+        whatsapp_group_link: "https://chat.whatsapp.com/"
+      };
+
+      // 1. Send Full Registration Details to Admin
+      if (EMAILJS_CONFIG.adminTemplateId && EMAILJS_CONFIG.adminTemplateId !== "YOUR_ADMIN_TEMPLATE_ID") {
+        emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.adminTemplateId, templateParams, EMAILJS_CONFIG.publicKey)
+          .then(res => console.log('Admin notification email sent successfully:', res.status))
+          .catch(err => console.error('Failed to send admin notification email:', err));
+      }
+
+      // 2. Send Clean Branded Receipt to Student
+      if (EMAILJS_CONFIG.userTemplateId && EMAILJS_CONFIG.userTemplateId !== "YOUR_USER_TEMPLATE_ID") {
+        emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.userTemplateId, templateParams, EMAILJS_CONFIG.publicKey)
+          .then(res => console.log('Student confirmation email sent successfully:', res.status))
+          .catch(err => console.error('Failed to send student confirmation email:', err));
+      }
+    }
+
     function handleEnrollPayment(e) {
       e.preventDefault();
 
@@ -2462,43 +2670,106 @@
         return;
       }
 
-      // Save student registration locally in localStorage
-      const enrollmentRecord = {
-        name: name,
-        email: email,
-        phone: phone,
-        whatsapp: whatsapp,
-        city: city,
-        profession: profession,
-        amount: 'INR 1,000.00',
-        createdAt: new Date().toISOString()
-      };
-      try {
-        const existing = JSON.parse(localStorage.getItem('elv8_workshop_enrollments') || '[]');
-        existing.push(enrollmentRecord);
-        localStorage.setItem('elv8_workshop_enrollments', JSON.stringify(existing));
-      } catch (err) {
-        console.warn('Could not save registration locally:', err);
+      if (typeof Razorpay === 'undefined') {
+        showEnrollStatus('Payment gateway is loading. Please check your internet connection and try again.', 'error');
+        return;
       }
 
-      // Official Razorpay Payment Page URL for Fazeela Mohamed
-      const RAZORPAY_PAYMENT_URL = "https://razorpay.me/@fazeelamohamed";
+      const payBtn = document.getElementById('enrollPayBtn');
+      const payBtnText = document.getElementById('enrollPayBtnText');
+      if (payBtn) payBtn.disabled = true;
+      if (payBtnText) payBtnText.textContent = 'Opening Razorpay...';
 
-      // Open Razorpay payment page in a new window/tab
-      const paymentWindow = window.open(RAZORPAY_PAYMENT_URL, '_blank');
+      // Production Live Razorpay Key ID
+      const RAZORPAY_KEY_ID = "rzp_live_U1voYzV9ghDRb1";
+      const FIXED_AMOUNT_PAISE = 100; // INR 1.00 test amount (100 paise)
 
-      // Display confirmation screen in modal
-      document.getElementById('enrollPaymentForm').style.display = 'none';
-      document.getElementById('enrollSuccessScreen').style.display = 'block';
-      document.getElementById('successName').textContent = name;
-      const whatsappEl = document.getElementById('successWhatsapp');
-      if (whatsappEl) whatsappEl.textContent = whatsapp;
-      const cityEl = document.getElementById('successCity');
-      if (cityEl) cityEl.textContent = city;
+      const options = {
+        key: RAZORPAY_KEY_ID,
+        amount: FIXED_AMOUNT_PAISE,
+        currency: "INR",
+        name: "ELV8 Academy",
+        description: "Professional Presence & Communication Workshop",
+        image: "https://res.cloudinary.com/defqgygsf/image/upload/v1795072605/Elv8_Growth_Arrows_Logo_n0nmh1.png",
+        prefill: {
+          name: name,
+          email: email,
+          contact: phone
+        },
+        notes: {
+          workshop: "Professional Presence & Communication",
+          whatsapp_number: whatsapp,
+          city: city,
+          profession: profession
+        },
+        theme: {
+          color: "#0097b2"
+        },
+        modal: {
+          ondismiss: function () {
+            if (payBtn) payBtn.disabled = false;
+            if (payBtnText) payBtnText.textContent = 'Pay INR 1.00 ↗';
+            showEnrollStatus('Payment was cancelled. You can retry when ready.', 'info');
+          }
+        },
+        handler: function (response) {
+          // Payment Successful!
+          const paymentId = response.razorpay_payment_id;
 
-      // Inform the user in case browser blocked auto popup
-      if (!paymentWindow || paymentWindow.closed || typeof paymentWindow.closed === 'undefined') {
-        showEnrollStatus('Please click "Pay INR 1,000.00 on Razorpay" below to complete payment.', 'info');
+          const enrollmentRecord = {
+            name: name,
+            email: email,
+            phone: phone,
+            whatsapp: whatsapp,
+            city: city,
+            profession: profession,
+            amount: 'INR 1.00',
+            paymentId: paymentId,
+            paidAt: new Date().toISOString()
+          };
+
+          try {
+            const existing = JSON.parse(localStorage.getItem('elv8_workshop_enrollments') || '[]');
+            existing.push(enrollmentRecord);
+            localStorage.setItem('elv8_workshop_enrollments', JSON.stringify(existing));
+          } catch (err) {
+            console.warn('Could not save registration locally:', err);
+          }
+
+          // Display confirmation screen in modal
+          document.getElementById('enrollPaymentForm').style.display = 'none';
+          document.getElementById('enrollSuccessScreen').style.display = 'block';
+          document.getElementById('successName').textContent = name;
+          const whatsappEl = document.getElementById('successWhatsapp');
+          if (whatsappEl) whatsappEl.textContent = whatsapp;
+          const cityEl = document.getElementById('successCity');
+          if (cityEl) cityEl.textContent = city;
+          const paymentIdEl = document.getElementById('successPaymentId');
+          if (paymentIdEl) paymentIdEl.textContent = paymentId;
+
+          if (payBtn) payBtn.disabled = false;
+          if (payBtnText) payBtnText.textContent = 'Pay INR 1.00 ↗';
+
+          // Trigger automated emails via EmailJS (User confirmation & Admin alert)
+          sendEnrollmentEmails(enrollmentRecord);
+        }
+      };
+
+      try {
+        const rzp = new Razorpay(options);
+        rzp.on('payment.failed', function (resp) {
+          console.error('Razorpay payment failed full response:', resp);
+          if (payBtn) payBtn.disabled = false;
+          if (payBtnText) payBtnText.textContent = 'Pay INR 1.00 ↗';
+          const errDetail = resp.error ? (resp.error.description || resp.error.reason || resp.error.code) : 'Transaction could not be completed';
+          showEnrollStatus('Payment failed: ' + errDetail, 'error');
+        });
+        rzp.open();
+      } catch (err) {
+        console.error('Razorpay open error:', err);
+        if (payBtn) payBtn.disabled = false;
+        if (payBtnText) payBtnText.textContent = 'Pay INR 1.00 ↗';
+        showEnrollStatus('Could not initiate payment: ' + err.message, 'error');
       }
     }
 
