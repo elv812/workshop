@@ -1384,7 +1384,7 @@
         </div>
 
         <div class="hero-visual">
-          <img src="Communication Leadership Confidence Books.png"
+          <img src="Communication Leadership Books with Chess King and Target.png"
             alt="Halithathul Fazeela - Founder &amp; Lead Trainer, ELV8 Academy" class="hero-artwork-img" />
         </div>
       </div>
@@ -2657,12 +2657,12 @@
           },
           body: JSON.stringify(payload)
         })
-        .then(() => {
-          console.log('Google Sheet sync triggered successfully for status:', status);
-        })
-        .catch(err => {
-          console.warn('Google Sheet sync warning:', err);
-        });
+          .then(() => {
+            console.log('Google Sheet sync triggered successfully for status:', status);
+          })
+          .catch(err => {
+            console.warn('Google Sheet sync warning:', err);
+          });
       } catch (err) {
         console.warn('Google Sheet fetch error:', err);
       }
